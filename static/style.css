@@ -1,0 +1,34 @@
+body{
+    background-image: url(/static/download.jpeg);
+      background-repeat:repeat;
+      background-size: cover;
+      background-position: fixed;
+  
+  }
+.container{
+    display: grid;
+   
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    max-width: 1700px;
+    margin: 0 auto;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); */
+}
+.card img {
+    max-width: 100%;
+    /* height: auto; */
+    border-radius: 100px;
+}
+h1 {
+    text-align: center ;
+}
+
+.bb {
+    text-align:center;
+    
+}

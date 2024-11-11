@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter</title>
+    <style>
+        body{
+       background-image: url(/static/download.jpeg);
+         background-repeat:repeat;
+         background-size: cover;
+         background-position: fixed;
+     
+     }
+     .container {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+     }
+     .card:hover {
+ transform: scale(1.05);
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+}
+     .card {
+         margin: 10px;
+         padding: 10px;
+         border: 1px solid rgba(0, 0, 0, 0);
+         border-radius: 10px;
+         width: 200px;
+         height: 200px;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+     }
+     .card img {
+         width: 100%;
+ border-bottom: 1px solid #dddddd00;
+ border-radius: 100px ;
+ transition: transform 0.3s;
+     }
+     .card:hover img {
+ transform: scale(1.1);
+}
+h1 {
+ text-align: center ;
+}
+ </style>
+</head>
+<body>
+    <div class="container">
+        {{range .}}
+  
+    
+        
+       <div class="card">
+        <input type="hidden" name="id" value="{{.Id}}">
+    
+        
+        <a href="/Artist?id={{.Id}}">
+            <img  src="{{.Image}}"> </a>
+       
+    </div>
+        {{end}}
+</body>
+</html>

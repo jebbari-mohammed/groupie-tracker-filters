@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listes Groupies Trackers</title>
+</head>
+<link rel="stylesheet" href="/static/style.css">
+<body>
+    <h1>Groupies Trackers</h1>
+
+   <div class="bb">
+  <form method="GET" action="/Search_Bar">
+  <input required list="hh"  name="search" size="60px">
+  <datalist id="hh">
+    {{range .Artists}}
+    <option value="{{.Name}}"></option>
+    {{range .Members}}
+    <option value="{{.}}"></option>
+    {{end}}
+    <option value="{{.FirstAlbum}}"></option>
+    <option value="{{.CreationDate}}"></option>
+    {{end}}
+    
+    {{range .Location}}
+    {{range .Locatins}}
+    <option value="{{.}}"></option>
+    {{end}}
+    {{end}}
+  </datalist>
+
+
+  <button>submit</button>
+</form> 
+<form method="GET" action="/Filter">
+  
+
+    <p > <strong>creation date</strong> </p>
+    <input type="range" name="id2" id="min" value="1955" min="1955" max="2024"oninput="this.nextElementSibling.value = this.value"> <output>1955</output>
+    <input type="range" id="max" value="2024" name="id" min="1955" max="2024" oninput="this.nextElementSibling.value = this.value"> <output>2024</output>
+
+   
+
+    <p><strong>first album date</strong></p>
+    <input type="range" name="id4" value="1955" min="1955" max="2024" oninput="this.nextElementSibling.value= this.value"><output>1955</output>
+    <input type="range" name="id3" value="2024" min="1955" max="2024" oninput="this.nextElementSibling.value = this.value"> <output>2024</output>
+
+   
+    <p><strong> number of members</strong></p>
+
+    <input type="checkbox" name="c1" value="1">1
+    <input type="checkbox" name="c1" value="2">2
+    <input type="checkbox" name="c1" value="3" >3
+    <input type="checkbox" name="c1" value="4" >4
+    <input type="checkbox" name="c1" value="5" >5
+    <input type="checkbox" name="c1" value="6" >6
+    <input type="checkbox" name="c1" value="7" >7
+    <input type="checkbox" name="c1" value="8" >8
+
+ 
+    <p><strong>locations of concerts</strong></p>
+    <input list="kk" name="filter" size="60px">
+    <datalist id="kk">
+    {{range .Location}}
+    {{range .Locatins}}
+      <option value="{{.}}"></option>
+      {{end}}
+      {{end}}
+    </datalist>
+    <button>submit</button>
+  </div>
+</form> 
+<div class="container">
+    {{range .Artists}}
+
+
+    
+   <div class="card">
+    <input type="hidden" name="id" value="{{.Id}}">
+
+    
+    <a href="/Artist?id={{.Id}}">
+        <img  src="{{.Image}}"> </a>
+  
+</div>
+    {{end}}
+</div>
+</body>
+</html>
